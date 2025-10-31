@@ -453,10 +453,10 @@ class PcapReader:
             self._reader = ScapyPcapReader(self.file_path)
             return self._reader
         except FileNotFoundError:
-            print(f"[ERRORE] File non trovato: {self.file_path}")
+            print(f" File non trovato: {self.file_path}")
             raise
         except Exception as e:
-            print(f"[ERRORE] Errore durante l'apertura del file {self.file_path}: {e}")
+            print(f" Errore durante l'apertura del file {self.file_path}: {e}")
             raise
 
     def __exit__(self, exc_type, exc_val, exc_tb):
@@ -503,4 +503,4 @@ if __name__ == "__main__":
     with ProcessPoolExecutor() as executor:
         results = list(executor.map(process_single_file, pcap_files))
 
-    print(f"[INFO] Analisi completata. File CSV generati: {[r for r in results if r]}")
+    print(f" File CSV generati: {[r for r in results if r]}")
